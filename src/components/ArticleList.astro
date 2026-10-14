@@ -1,0 +1,8 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl, readingMinutes } from '../lib/content';
+import Icon from './Icon.astro';
+interface Props { entries: CollectionEntry<'handbook'>[]; numbered?: boolean; }
+const { entries, numbered = false } = Astro.props;
+---
+<div class="article-list">{entries.map((entry, i) => <a class="article-row" href={articleUrl(entry.id)}>{numbered ? <span class="row-number">{String(i + 1).padStart(2, '0')}</span> : <span class="article-row-icon"><Icon name="book" size={19} /></span>}<div><h3>{entry.data.title}</h3><p>{entry.data.description}</p></div><span class="row-time">{readingMinutes(entry.body)} min</span><Icon name="arrow" size={18} /></a>)}</div>

@@ -1,0 +1,77 @@
+---
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/newsreader';
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { articles, url, articleUrl, categoryUrl, repository } from '../lib/content';
+import { categories } from '../lib/categories';
+interface Props { title?: string; description?: string; section?: string; }
+const { title, description = 'An open, evolving knowledge base for identity and access management. Learn the fundamentals, explore architectures, and put IAM into practice.', section = 'Knowledge base' } = Astro.props;
+const entries = await articles();
+const currentPath = Astro.url.pathname;
+const active = (path: string) => currentPath.replace(/\/$/, '') === path.replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f8f9f5" />
+    <title>{title ? `${title} — IAM Handbook` : 'IAM Handbook — Identity, understood.'}</title>
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title ? `${title} — IAM Handbook` : 'IAM Handbook — Identity, understood.'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <script is:inline>
+      try { document.documentElement.dataset.theme = localStorage.getItem('iam-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a href={url()} class="brand" aria-label="IAM Handbook home"><span class="brand-mark">i<span>:</span></span><span>IAM <strong>Handbook</strong><small>IDENTITY & ACCESS MANAGEMENT</small></span></a>
+      <div class="header-main">
+        <div class="header-context"><span class="context-square"></span>{section}</div>
+        <nav class="header-links" aria-label="Utility navigation"><a href={url('roadmap/')}>Roadmap</a><a href={url('contribute/')}>Contribute <Icon name="northeast" size={13} /></a></nav>
+        <span class="header-divider"></span>
+        <a class="icon-button" href={repository} aria-label="View source on GitHub"><Icon name="github" /></a>
+        <button class="icon-button" id="theme-toggle" aria-label="Switch color theme"><Icon name="sun" /></button>
+        <button class="icon-button mobile-menu" id="menu-toggle" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><Icon name="menu" /></button>
+      </div>
+    </header>
+    <button class="nav-backdrop" id="nav-backdrop" aria-label="Close navigation" tabindex="-1" hidden></button>
+    <aside class="sidebar" id="sidebar">
+      <button class="search-trigger" data-search-open><Icon name="search" size={17} /><span>Search the handbook</span><kbd>⌘ K</kbd></button>
+      <nav aria-label="Main navigation">
+        <div class="primary-nav">
+          <a href={url()} class:list={['nav-link', { active: active(url()) }]} aria-current={active(url()) ? 'page' : undefined}><Icon name="grid" size={17} />Overview</a>
+          <a href={url('learning-path/')} class:list={['nav-link', { active: active(url('learning-path/')) }]} aria-current={active(url('learning-path/')) ? 'page' : undefined}><Icon name="nodes" size={17} />Learning path<span class="tiny-badge">START HERE</span></a>
+          <a href={articleUrl('fundamentals/glossary')} class:list={['nav-link', { active: active(articleUrl('fundamentals/glossary')) }]}><Icon name="book" size={17} />Glossary</a>
+        </div>
+        <div class="nav-label">THE KNOWLEDGE BASE <span>{entries.length}</span></div>
+        <div class="topic-nav">{categories.map((category) => {
+          const group = entries.filter(e => e.data.category === category.id);
+          const inCategory = currentPath.includes(`/handbook/${category.id}/`) || active(categoryUrl(category.id));
+          return <details open={inCategory}>
+            <summary><Icon name={category.icon} size={17} /><span>{category.name}</span><Icon name="chevron" size={13} /></summary>
+            <div class="topic-children"><a href={categoryUrl(category.id)} aria-current={active(categoryUrl(category.id)) ? 'page' : undefined}>Topic overview</a>{group.map(entry => <a href={articleUrl(entry.id)} class:list={{ active: active(articleUrl(entry.id)) }} aria-current={active(articleUrl(entry.id)) ? 'page' : undefined}>{entry.data.title}</a>)}</div>
+          </details>;
+        })}</div>
+      </nav>
+      <div class="sidebar-note"><span class="status-dot"></span>A living reference<small>Built to learn. Open to grow.</small><a href={url('contribute/')}>Help shape the handbook <Icon name="arrow" size={14} /></a></div>
+      <div class="sidebar-foot"><span>v0.1 · The foundations</span><Icon name="leaf" size={15} /></div>
+    </aside>
+    <main class="main" id="main" tabindex="-1"><slot /></main>
+    <dialog id="search-dialog" aria-labelledby="search-title" data-index={url('search-index.json')}>
+      <div class="search-top"><Icon name="search" /><label class="sr-only" for="search-input" id="search-title">Search the handbook</label><input id="search-input" type="search" placeholder="Search concepts, protocols, and patterns…" autocomplete="off" /><button class="icon-button" id="search-close" aria-label="Close search"><Icon name="close" /></button></div>
+      <p class="search-status" id="search-status" role="status">Type to search the entire handbook.</p>
+      <div id="search-results" class="search-results"></div>
+      <div class="search-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> navigate · <kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>
+    </dialog>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

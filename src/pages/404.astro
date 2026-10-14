@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/content';
+---
+<Layout title="Page not found"><div class="page-wrap not-found"><div class="eyebrow">404 · A MISSING CONNECTION</div><h1>This page is<br /><em>off the map.</em></h1><p>The article may have moved, or the link may be incomplete.</p><a class="button button-primary" href={url()}>Return to the handbook →</a><button class="text-link" data-search-open>Search the handbook</button></div></Layout>
