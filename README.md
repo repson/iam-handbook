@@ -1,6 +1,6 @@
 # IAM Handbook
 
-An open, evolving knowledge base for **identity and access management**, written in English. Start with the fundamentals and add new discoveries over time.
+An open, evolving knowledge base for **identity and access management**. Start with the fundamentals and add new discoveries over time.
 
 The website is generated from independent Markdown documents using Astro. It is a static site designed for GitHub Pages: no database, API keys, or server runtime is required.
 
