@@ -51,7 +51,7 @@ interface SearchEntry { title: string; description: string; category: string; ta
 const dialog = document.querySelector<HTMLDialogElement>('#search-dialog')!;
 const input = document.querySelector<HTMLInputElement>('#search-input')!;
 const results = document.querySelector<HTMLElement>('#search-results')!;
-const status = document.querySelector<HTMLElement>('#search-status')!;
+const searchStatus = document.querySelector<HTMLElement>('#search-status')!;
 let index: SearchEntry[] | undefined;
 let pendingIndex: Promise<SearchEntry[]> | undefined;
 let returnFocus: HTMLElement | null = null;
@@ -64,14 +64,14 @@ async function loadIndex() {
     return response.json() as Promise<SearchEntry[]>;
   });
   try { index = await pendingIndex; failed = false; return index; }
-  catch { pendingIndex = undefined; failed = true; status.textContent = 'Search could not load. Close and reopen to retry, or browse the topics.'; return []; }
+  catch { pendingIndex = undefined; failed = true; searchStatus.textContent = 'Search could not load. Close and reopen to retry, or browse the topics.'; return []; }
 }
 async function openSearch() {
   if (dialog.open) return;
   returnFocus = document.activeElement as HTMLElement;
   dialog.showModal();
   input.focus();
-  status.textContent = 'Loading the handbook…';
+  searchStatus.textContent = 'Loading the handbook…';
   await loadIndex();
   runSearch();
 }
@@ -88,7 +88,7 @@ function runSearch() {
   if (failed) return;
   const query = normalize(input.value.trim());
   const terms = query.split(/\s+/).filter(Boolean);
-  if (!terms.length) { status.textContent = 'Type to search the entire handbook.'; return; }
+  if (!terms.length) { searchStatus.textContent = 'Type to search the entire handbook.'; return; }
   const matches = (index || []).map(entry => {
     const title = normalize(entry.title);
     const summary = normalize(`${entry.description} ${entry.category} ${entry.tags.join(' ')}`);
@@ -97,7 +97,7 @@ function runSearch() {
     const score = terms.reduce((sum, term) => sum + (title.includes(term) ? 15 : 0) + (summary.includes(term) ? 5 : 0) + (body.includes(term) ? 1 : 0), title.includes(query) ? 30 : 1);
     return { entry, score };
   }).filter(match => match.score > 0).sort((a, b) => b.score - a.score);
-  status.textContent = matches.length ? `${matches.length} ${matches.length === 1 ? 'article' : 'articles'} found${matches.length > 20 ? ' · showing the first 20' : ''}` : 'No articles found. Try a broader term, such as “access” or “identity”.';
+  searchStatus.textContent = matches.length ? `${matches.length} ${matches.length === 1 ? 'article' : 'articles'} found${matches.length > 20 ? ' · showing the first 20' : ''}` : 'No articles found. Try a broader term, such as “access” or “identity”.';
   for (const { entry } of matches.slice(0, 20)) {
     const link = document.createElement('a');
     link.href = entry.url;

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import handbookLinks from './scripts/remark-handbook-links.mjs';
 
 const base = (process.env.BASE_PATH || '/iam-handbook').replace(/\/$/, '');
@@ -10,6 +11,7 @@ export default defineConfig({
   base,
   trailingSlash: 'always',
   integrations: [sitemap()],
-  markdown: { shikiConfig: { theme: 'github-dark' }, remarkPlugins: [[handbookLinks, { base }]] },
+  // The link plugin is a remark plugin, so Markdown runs on the unified processor.
+  markdown: { shikiConfig: { theme: 'github-dark' }, processor: unified({ remarkPlugins: [[handbookLinks, { base }]] }) },
   devToolbar: { enabled: false },
 });

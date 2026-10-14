@@ -50,7 +50,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <div class="primary-nav">
           <a href={url()} class:list={['nav-link', { active: active(url()) }]} aria-current={active(url()) ? 'page' : undefined}><Icon name="grid" size={17} />Overview</a>
           <a href={url('learning-path/')} class:list={['nav-link', { active: active(url('learning-path/')) }]} aria-current={active(url('learning-path/')) ? 'page' : undefined}><Icon name="nodes" size={17} />Learning path<span class="tiny-badge">START HERE</span></a>
-          <a href={articleUrl('fundamentals/glossary')} class:list={['nav-link', { active: active(articleUrl('fundamentals/glossary')) }]}><Icon name="book" size={17} />Glossary</a>
+          <a href={articleUrl('fundamentals/glossary')} class:list={['nav-link', { active: active(articleUrl('fundamentals/glossary')) }]} aria-current={active(articleUrl('fundamentals/glossary')) ? 'page' : undefined}><Icon name="book" size={17} />Glossary</a>
         </div>
         <div class="nav-label">THE KNOWLEDGE BASE <span>{entries.length}</span></div>
         <div class="topic-nav">{categories.map((category) => {
@@ -63,7 +63,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         })}</div>
       </nav>
       <div class="sidebar-note"><span class="status-dot"></span>A living reference<small>Built to learn. Open to grow.</small><a href={url('contribute/')}>Help shape the handbook <Icon name="arrow" size={14} /></a></div>
-      <div class="sidebar-foot"><span>v0.1 · The foundations</span><Icon name="leaf" size={15} /></div>
+      <div class="sidebar-foot"><span>v0.2 · Foundations and practice</span><Icon name="leaf" size={15} /></div>
     </aside>
     <main class="main" id="main" tabindex="-1"><slot /></main>
     <dialog id="search-dialog" aria-labelledby="search-title" data-index={url('search-index.json')}>
