@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const output = path.resolve('dist');
-const base = `${(process.env.BASE_PATH || '/iamnotroot').replace(/\/$/, '')}/`;
+const base = `${(process.env.BASE_PATH || '/').replace(/\/$/, '')}/`;
 async function filesAt(directory) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   return (await Promise.all(entries.map(entry => entry.isDirectory() ? filesAt(path.join(directory, entry.name)) : [path.join(directory, entry.name)]))).flat();

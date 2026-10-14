@@ -3,11 +3,12 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import handbookLinks from './scripts/remark-handbook-links.mjs';
 
-const base = (process.env.BASE_PATH || '/iamnotroot').replace(/\/$/, '');
+const base = (process.env.BASE_PATH || '/').replace(/\/$/, '');
 
-// Override both values for a custom domain or another repository.
+// Production uses the custom domain at the root. Override both values to
+// publish elsewhere, such as a project path on <owner>.github.io.
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://repson.github.io',
+  site: process.env.SITE_URL || 'https://iamnotroot.com',
   base,
   trailingSlash: 'always',
   integrations: [sitemap()],

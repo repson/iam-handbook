@@ -4,7 +4,7 @@ An open, evolving knowledge base for **identity and access management**. Start w
 
 The website is generated from independent Markdown documents using Astro. It is a static site designed for GitHub Pages: no database, API keys, or server runtime is required.
 
-Expected GitHub Pages URL: **https://repson.github.io/iamnotroot/**. This is the configured destination, not a deployment-status indicator.
+Website: **https://iamnotroot.com/**, published with GitHub Pages from `repson/iamnotroot`. This is the configured destination, not a deployment-status indicator.
 
 ## What is included
 
@@ -53,7 +53,7 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by Astro, including `/iamnotroot/` (normally `http://127.0.0.1:4321/iamnotroot/`).
+Open the local URL printed by Astro (normally `http://127.0.0.1:4321/`).
 
 ```bash
 npm run verify     # Type-check, build, and check generated pages and links
@@ -104,15 +104,30 @@ For `repson/iamnotroot`:
 1. Open **Settings → Pages** in the GitHub repository.
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
 3. Push the project to `main`, or run **Check and deploy the handbook** manually from the Actions tab.
-4. Once the deployment succeeds, open `https://repson.github.io/iamnotroot/`.
+4. Under **Custom domain**, keep `iamnotroot.com` and enable **Enforce HTTPS** once the certificate is ready.
+5. Once the deployment succeeds, open `https://iamnotroot.com/`.
 
 Pull requests run the same checks without publishing. A successful push to `main` builds and deploys the entire site, including content edits. GitHub Pages availability depends on repository visibility and your GitHub plan.
 
 If the Actions tab also shows a **pages build and deployment** run that fails at **Build with Jekyll**, the Pages source is still set to **Deploy from a branch**. Switch it to **GitHub Actions** as described above. Do not add a `.nojekyll` file as a workaround: the branch deployment would then publish the raw repository over the built site.
 
-The workflow derives the owner and project path from the repository. For another project repository, the deployment adapts automatically. For local builds, change `astro.config.mjs` or supply `SITE_URL` and `BASE_PATH`.
+### Custom domain
 
-For a custom domain or a `<owner>.github.io` root repository, set the appropriate public origin and use `BASE_PATH=/`. Update both local configuration and workflow variables. A custom domain also needs DNS and GitHub Pages settings; add `public/CNAME` only when using one.
+The site is served at the root of `iamnotroot.com`. The workflow builds with `SITE_URL=https://iamnotroot.com` and `BASE_PATH=/`, and `astro.config.mjs` uses the same values by default, so local builds match production. The `repson.github.io/iamnotroot/` address redirects to the custom domain.
+
+With GitHub Actions as the Pages source, the custom domain is the one set in **Settings → Pages**; the `CNAME` file at the repository root was created by GitHub when the domain was configured.
+
+The DNS zone needs:
+
+| Name | Type | Value |
+| --- | --- | --- |
+| `iamnotroot.com` | `A` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| `iamnotroot.com` (optional) | `AAAA` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| `www.iamnotroot.com` | `CNAME` | `repson.github.io.` |
+
+Remove any other record for the same names, such as a registrar's default `A` record or web redirection on `www`: a name with a `CNAME` cannot have other records.
+
+To publish somewhere else, such as a project path on `<owner>.github.io`, change `SITE_URL` and `BASE_PATH` in both the workflow and `astro.config.mjs`.
 
 ## Editorial direction
 
