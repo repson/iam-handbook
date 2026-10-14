@@ -41,7 +41,7 @@ Access tokens can be opaque or structured. Their format is a deployment choice; 
 
 Use maintained protocol libraries and the applicable security profile. The OAuth Security BCP advises against the implicit grant and prohibits use of the resource owner password credentials grant. Exact redirect URI handling, PKCE, token protection, and client type all matter.
 
-For application sign-in, continue with [OpenID Connect](openid-connect.md). For software acting without a user, see [workload access](../use-cases/workload-access.md).
+For application sign-in, continue with [OpenID Connect](openid-connect.md). For software acting without a user, see [workload access](../use-cases/workload-access.md). For device sign-in, token exchange, and sender-constrained tokens, see [advanced OAuth](oauth-extensions.md).
 
 ## References
 

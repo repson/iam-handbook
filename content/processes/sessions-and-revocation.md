@@ -32,6 +32,8 @@ OAuth defines token revocation and token introspection as separate mechanisms. R
 
 Their behavior depends on implementation, caching, propagation, and which artifacts are checked. An application may need to terminate its own session independently.
 
+Event-based mechanisms close part of the gap. With [Shared Signals and CAEP](../standards/shared-signals.md), an identity provider can tell a cooperating application that a session was revoked, instead of waiting for tokens to expire. Sender-constrained tokens, described in [advanced OAuth](../standards/oauth-extensions.md), reduce the value of a stolen token in the meantime.
+
 ## Test the end of access
 
 An illustrative offboarding exercise should check:
@@ -48,3 +50,4 @@ Record how long each remains usable and compare that result with the requirement
 
 - [OAuth Token Revocation, RFC 7009](https://www.rfc-editor.org/rfc/rfc7009.html).
 - [OAuth Token Introspection, RFC 7662](https://www.rfc-editor.org/rfc/rfc7662.html).
+- [OpenID Shared Signals Working Group](https://openid.net/wg/sharedsignals/).

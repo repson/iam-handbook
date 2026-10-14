@@ -8,11 +8,11 @@ Expected GitHub Pages URL: **https://repson.github.io/iam-handbook/**. This is t
 
 ## What is included
 
-- 24 introductory articles across eight connected areas.
+- 44 articles across eight connected areas, from foundational concepts to advanced practice: governance, privileged access, threat detection, API authorization, token validation, and more.
 - A guided learning path, glossary, roadmap, and contribution guide.
 - Automatically generated topic pages, article navigation, and table of contents.
 - Local full-text search with keyboard navigation (`Ctrl/Cmd + K`).
-- Responsive navigation, light and dark themes, print styles, and self-hosted fonts.
+- Responsive navigation, light and dark themes (the dark theme follows GitHub's dark palette), print styles, and self-hosted fonts.
 - Canonical URLs, social metadata, a sitemap, and a custom 404 page.
 - A GitHub Actions workflow that validates changes and deploys `main` to Pages.
 
@@ -105,6 +105,8 @@ For `repson/iam-handbook`:
 4. Once the deployment succeeds, open `https://repson.github.io/iam-handbook/`.
 
 Pull requests run the same checks without publishing. A successful push to `main` builds and deploys the entire site, including content edits. GitHub Pages availability depends on repository visibility and your GitHub plan.
+
+If the Actions tab also shows a **pages build and deployment** run that fails at **Build with Jekyll**, the Pages source is still set to **Deploy from a branch**. Switch it to **GitHub Actions** as described above. Do not add a `.nojekyll` file as a workaround: the branch deployment would then publish the raw repository over the built site.
 
 The workflow derives the owner and project path from the repository. For another project repository, the deployment adapts automatically. For local builds, change `astro.config.mjs` or supply `SITE_URL` and `BASE_PATH`.
 

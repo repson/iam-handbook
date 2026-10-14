@@ -17,12 +17,16 @@ IAM standards solve different problems. Before selecting one, describe the inter
 | Exchange identity assertions, often for enterprise SSO | SAML 2.0 | [SAML](saml.md) |
 | Create and manage users and groups across systems | SCIM 2.0 | [SCIM](scim.md) |
 | Authenticate with public-key credentials on the web | WebAuthn / FIDO | [Modern authentication](modern-authentication.md) |
-| Access a directory | LDAP | Planned deeper coverage |
-| Represent a set of claims | JWT | Read alongside the protocol that uses it |
+| Represent and validate a set of claims | JWT, JWS, JWK | [JWT and token validation](jwt-and-token-validation.md) |
+| Sign in devices, exchange tokens, or bind tokens to a client | OAuth extensions | [Advanced OAuth](oauth-extensions.md) |
+| Access a directory or authenticate inside a Windows domain | LDAP, Kerberos | [LDAP and Kerberos](ldap-and-kerberos.md) |
+| Notify other systems of revocations and compromise | Shared Signals, CAEP, RISC | [Shared Signals](shared-signals.md) |
+| Ask a policy engine for an authorization decision | AuthZEN, XACML | [Policy engines](../patterns/policy-engines.md) |
+| Give workloads an identity without stored secrets | SPIFFE, workload federation | [Non-human identities](../identity-modeling/non-human-identities.md) |
 
 ## A format is not a complete protocol
 
-A JWT is a token format. It does not tell you, by itself, which issuer is trusted, which keys are accepted, which recipient it is intended for, or whether it is the right kind of token for a request.
+A JWT is a token format. It does not tell you, by itself, which issuer is trusted, which keys are accepted, which recipient it is intended for, or whether it is the right kind of token for a request. [JWT and token validation](jwt-and-token-validation.md) lists the checks a recipient applies.
 
 Likewise, “uses JSON” says little about the trust model. A secure integration needs the surrounding protocol, validation rules, and operational controls.
 

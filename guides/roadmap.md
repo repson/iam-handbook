@@ -1,31 +1,38 @@
 ---
 title: A handbook that grows
-description: The foundations are the first edition. Here is the direction for future discoveries.
+description: What the handbook covers today, and the direction for future discoveries.
 updated: 2026-10-14
 ---
-This handbook begins with an introduction to the discipline, a working vocabulary, and examples that connect the concepts. It is a growing reference rather than an exhaustive encyclopedia.
+This handbook began with an introduction to the discipline, a working vocabulary, and examples that connect the concepts. It is a growing reference rather than an exhaustive encyclopedia.
 
-## Available now — The foundations
+## Available now — Foundations
 
 The first edition covers eight areas: fundamentals, identity modeling, architecture, processes, capabilities, design patterns, use cases, and standards.
 
 Start with the [learning path](learning-path.md), or choose the concept relevant to a current problem. Articles include examples, cross-references, and primary sources where applicable.
 
-## Next — Deeper operational guidance
+## Available now — Operations and practice
 
-Planned topics include privileged access management, access certification campaigns, identity data quality, break-glass access, and incident response for identity systems.
+The second edition adds operational and advanced material:
 
-Each topic should explain the problem, the model, the process, evidence of success, and common failure modes.
+- **Governance and privilege:** identity governance, roles and entitlements, privileged access management, just-in-time access, and emergency access.
+- **Security operations:** identity threat detection and response, identity incident response, and urgent offboarding.
+- **Populations:** customer IAM, identity assurance levels, non-human identities, and partner access.
+- **Authorization at runtime:** policy engines and policy as code, and authorization in APIs and microservices.
+- **Standards in practice:** JWT validation, advanced OAuth, LDAP and Kerberos, and Shared Signals.
+- **Running the program:** metrics that measure outcomes rather than deployment.
+
+## Next — Deeper walkthroughs
+
+Planned topics include protocol traces for OIDC and SAML, signing-key rotation exercises, SCIM interoperability testing, and federation logout.
+
+Examples should identify the specification or profile they implement and the limits of the demonstration.
 
 ## Later — More architectures and patterns
 
-Areas to explore include customer registration and recovery, partner and B2B federation, multi-tenant authorization, workload federation, policy decision services, and hybrid-directory integration.
+Areas to explore include multi-tenant SaaS identity, identity for AI agents, decentralized identity and verifiable credentials, mobile and native application sign-in, and migrating from on-premises directories.
 
 The aim is to compare the conditions under which a pattern helps and the tradeoffs it introduces. Product-specific implementation notes can supplement the underlying concepts.
-
-## Later — Standards in practice
-
-Future walkthroughs can cover protocol traces, token validation, signing-key rotation, SCIM interoperability, LDAP, and federation logout. Examples should identify the specification or profile they implement and the limits of the demonstration.
 
 There is no promised delivery schedule. This roadmap records direction and provides a place to organize new discoveries.
 

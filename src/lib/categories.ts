@@ -6,6 +6,6 @@ export const categories = [
   { id: 'processes', name: 'Processes', icon: 'cycle', description: 'Follow an identity from onboarding to offboarding. Make access requests and reviews repeatable.' },
   { id: 'capabilities', name: 'Capabilities', icon: 'grid', description: 'Map the building blocks of an IAM program, from governance to privileged access.' },
   { id: 'patterns', name: 'Design patterns', icon: 'nodes', description: 'Explore reusable approaches to access control, federation, and application integration.' },
-  { id: 'use-cases', name: 'Use cases', icon: 'terminal', description: 'Connect the concepts to everyday scenarios for employees and service identities.' },
-  { id: 'standards', name: 'Standards & protocols', icon: 'code', description: 'Know what OAuth, OpenID Connect, SAML, SCIM, and WebAuthn actually solve.' },
+  { id: 'use-cases', name: 'Use cases', icon: 'terminal', description: 'Connect the concepts to everyday scenarios: onboarding, urgent offboarding, partners, pipelines, and workloads.' },
+  { id: 'standards', name: 'Standards & protocols', icon: 'code', description: 'Know what OAuth, OpenID Connect, SAML, SCIM, WebAuthn, JWT, LDAP, and Shared Signals actually solve.' },
 ] as const;

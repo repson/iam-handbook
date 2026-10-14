@@ -41,6 +41,33 @@ Walk through [onboarding an employee](../content/use-cases/employee-onboarding.m
 
 **Next:** use the [capability map](../content/capabilities/capability-map.md) to connect these technical building blocks to an operating IAM program.
 
+## 07 — Govern and limit privilege
+
+Read [identity governance](../content/capabilities/identity-governance.md), [roles, groups, and entitlements](../content/identity-modeling/roles-groups-entitlements.md), and [privileged access management](../content/capabilities/privileged-access.md). Then see how [just-in-time access](../content/patterns/just-in-time-access.md) reduces standing privilege.
+
+**Try it:** pick one administrative role and describe how it would be requested, activated, logged, and removed.
+
+## 08 — Secure the runtime
+
+Study [JWT and token validation](../content/standards/jwt-and-token-validation.md) and [authorization in APIs](../content/patterns/api-authorization.md). Continue with [policy engines](../content/patterns/policy-engines.md) when rules outgrow application code.
+
+**You should be able to explain:** why a valid token for the right user can still be the wrong token for a request.
+
+## 09 — Prepare for things going wrong
+
+Read [emergency access](../content/processes/emergency-access.md), [identity threat detection](../content/capabilities/identity-threat-detection.md), and [responding to identity incidents](../content/processes/identity-incident-response.md). Walk through [offboarding a leaver urgently](../content/use-cases/urgent-offboarding.md).
+
+**Try it:** list every place a compromised account could still have access after its password is reset.
+
+## Go deeper
+
+Choose the branch that matches your work:
+
+- **Customer identity:** [customer IAM](../content/architecture/customer-iam.md) and [identity assurance levels](../content/fundamentals/identity-assurance.md).
+- **Workloads and automation:** [non-human identities](../content/identity-modeling/non-human-identities.md) and [deploying from CI/CD without stored secrets](../content/use-cases/ci-cd-workload-federation.md).
+- **Protocols:** [advanced OAuth](../content/standards/oauth-extensions.md), [Shared Signals](../content/standards/shared-signals.md), and [LDAP and Kerberos](../content/standards/ldap-and-kerberos.md).
+- **Running the program:** [measuring an IAM program](../content/capabilities/iam-metrics.md) and [partner access](../content/use-cases/b2b-partner-access.md).
+
 ## Keep a working glossary
 
 Return to the [IAM glossary](../content/fundamentals/glossary.md) whenever an abbreviation gets in the way. Understanding the relationship between terms matters more than memorizing them.
