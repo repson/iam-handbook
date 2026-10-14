@@ -1,4 +1,4 @@
-# IAM Handbook
+# iamnotroot
 
 An open, evolving knowledge base for **identity and access management**. Start with the fundamentals and add new discoveries over time.
 

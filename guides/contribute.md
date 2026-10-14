@@ -3,7 +3,7 @@ title: Build the handbook with us
 description: A small, repeatable workflow for adding a discovery and keeping the reference useful.
 updated: 2026-10-14
 ---
-IAM Handbook is an independent, vendor-neutral learning project. Its content and site source live together in a Git repository. Markdown is the source of truth for articles and guides.
+iamnotroot is an independent, vendor-neutral IAM handbook and learning project. Its content and site source live together in a Git repository. Markdown is the source of truth for articles and guides.
 
 ## Add a discovery
 

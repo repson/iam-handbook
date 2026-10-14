@@ -20,10 +20,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f8f9f5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
-    <title>{title ? `${title} — IAM Handbook` : 'IAM Handbook — Identity, understood.'}</title>
+    <title>{title ? `${title} — iamnotroot` : 'iamnotroot — Identity, understood.'}</title>
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
     <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={title ? `${title} — IAM Handbook` : 'IAM Handbook — Identity, understood.'} />
+    <meta property="og:title" content={title ? `${title} — iamnotroot` : 'iamnotroot — Identity, understood.'} />
+    <meta property="og:site_name" content="iamnotroot" />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -34,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a href={url()} class="brand" aria-label="IAM Handbook home"><span class="brand-mark">i<span>:</span></span><span>IAM <strong>Handbook</strong><small>IDENTITY & ACCESS MANAGEMENT</small></span></a>
+      <a href={url()} class="brand" aria-label="iamnotroot home"><span class="brand-mark">i<span>:</span></span><span>iam<strong>notroot</strong><small>IDENTITY & ACCESS MANAGEMENT</small></span></a>
       <div class="header-main">
         <div class="header-context"><span class="context-square"></span>{section}</div>
         <nav class="header-links" aria-label="Utility navigation"><a href={url('roadmap/')}>Roadmap</a><a href={url('contribute/')}>Contribute <Icon name="northeast" size={13} /></a></nav>
