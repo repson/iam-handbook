@@ -4,7 +4,7 @@ An open, evolving knowledge base for **identity and access management**. Start w
 
 The website is generated from independent Markdown documents using Astro. It is a static site designed for GitHub Pages: no database, API keys, or server runtime is required.
 
-Expected GitHub Pages URL: **https://repson.github.io/iam-handbook/**. This is the configured destination, not a deployment-status indicator.
+Expected GitHub Pages URL: **https://repson.github.io/iamnotroot/**. This is the configured destination, not a deployment-status indicator.
 
 ## What is included
 
@@ -53,7 +53,7 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by Astro, including `/iam-handbook/` (normally `http://127.0.0.1:4321/iam-handbook/`).
+Open the local URL printed by Astro, including `/iamnotroot/` (normally `http://127.0.0.1:4321/iamnotroot/`).
 
 ```bash
 npm run verify     # Type-check, build, and check generated pages and links
@@ -99,12 +99,12 @@ Drafts are excluded from the website, navigation, and search. A committed draft 
 
 ## Publish on GitHub Pages
 
-For `repson/iam-handbook`:
+For `repson/iamnotroot`:
 
 1. Open **Settings → Pages** in the GitHub repository.
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
 3. Push the project to `main`, or run **Check and deploy the handbook** manually from the Actions tab.
-4. Once the deployment succeeds, open `https://repson.github.io/iam-handbook/`.
+4. Once the deployment succeeds, open `https://repson.github.io/iamnotroot/`.
 
 Pull requests run the same checks without publishing. A successful push to `main` builds and deploys the entire site, including content edits. GitHub Pages availability depends on repository visibility and your GitHub plan.
 

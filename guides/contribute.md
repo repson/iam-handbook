@@ -38,10 +38,10 @@ Draft files remain visible in the Git repository if they are committed. Use a pr
 
 The repository includes a GitHub Actions workflow for GitHub Pages. Once Pages is configured to use GitHub Actions, changes merged or pushed to `main` rebuild and deploy the website.
 
-Use a pull request when a change benefits from review. See the repository [README](https://github.com/repson/iam-handbook#readme) for setup and deployment instructions.
+Use a pull request when a change benefits from review. See the repository [README](https://github.com/repson/iamnotroot#readme) for setup and deployment instructions.
 
 ## Corrections and scope
 
-Use [GitHub issues](https://github.com/repson/iam-handbook/issues) to report an incorrect statement, suggest a topic, or explain an unclear example. Include the page and the evidence that would help resolve the issue.
+Use [GitHub issues](https://github.com/repson/iamnotroot/issues) to report an incorrect statement, suggest a topic, or explain an unclear example. Include the page and the evidence that would help resolve the issue.
 
 The handbook is educational. Introductory articles explain responsibilities and concepts; production integrations require the full specifications, deployment context, and appropriate validation.

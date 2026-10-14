@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import handbookLinks from './scripts/remark-handbook-links.mjs';
 
-const base = (process.env.BASE_PATH || '/iam-handbook').replace(/\/$/, '');
+const base = (process.env.BASE_PATH || '/iamnotroot').replace(/\/$/, '');
 
 // Override both values for a custom domain or another repository.
 export default defineConfig({
