@@ -1,8 +1,8 @@
 ---
 title: OpenID Connect and application sign-in
 description: Learn what the identity layer adds to OAuth and why an ID token differs from an access token.
-category: standards
-order: 3
+category: oauth-oidc
+order: 5
 updated: 2026-10-14
 tags: [OIDC, OpenID Connect, ID token, claims, subject, SSO]
 ---
@@ -41,6 +41,11 @@ Decide how identity claims are mapped, how changes become visible, and where res
 
 These questions connect sign-in to the wider [IAM architecture](../architecture/components.md).
 
-## Reference
+## Go deeper
 
-[OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) defines ID tokens, claims, and protocol behavior.
+[OpenID Connect in depth](oidc-in-depth.md) covers flows, scopes, request parameters, UserInfo, subject types, and logout. [Token claims](token-claims.md) lists every claim you are likely to meet, and [discovery and metadata](discovery-and-metadata.md) explains `/.well-known/openid-configuration`.
+
+## References
+
+- [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) defines ID tokens, claims, and protocol behavior.
+- [OpenID Foundation specifications](https://openid.net/developers/specs/) lists the full family, including discovery, registration, and logout.

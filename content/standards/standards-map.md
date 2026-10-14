@@ -12,13 +12,19 @@ IAM standards solve different problems. Before selecting one, describe the inter
 
 | Need | Relevant standard or family | What to read here |
 | --- | --- | --- |
-| Delegate access to an API | OAuth 2.0 | [OAuth](oauth.md) |
-| Sign in to an application using an identity provider | OpenID Connect | [OpenID Connect](openid-connect.md) |
+| Delegate access to an API | OAuth 2.0 | [OAuth](../oauth-oidc/oauth.md), [grant types](../oauth-oidc/grants-and-clients.md), [endpoints](../oauth-oidc/authorization-server-endpoints.md) |
+| Sign in to an application using an identity provider | OpenID Connect | [OpenID Connect](../oauth-oidc/openid-connect.md), [in depth](../oauth-oidc/oidc-in-depth.md) |
+| Discover authorization servers and protected APIs | RFC 8414, OIDC Discovery, RFC 9728 | [Discovery and metadata](../oauth-oidc/discovery-and-metadata.md) |
+| Accept tokens in an API and request step-up | RFC 6750, RFC 9470 | [Resource servers](../oauth-oidc/resource-servers.md) |
+| Bind tokens to a client key | DPoP, RFC 9449 | [DPoP](../oauth-oidc/dpop.md) |
+| Protect or enrich the authorization request | PAR, JAR, RAR | [PAR and JAR](../oauth-oidc/par-and-jar.md), [RAR](../oauth-oidc/rich-authorization-requests.md) |
+| Use OAuth from browsers and mobile apps | Browser-based apps draft, RFC 8252 | [BFF](../patterns/backend-for-frontend.md), [native apps](../patterns/native-apps.md) |
+| Manage browser sessions | HTTP cookies, RFC 6265 | [Cookies and sessions](../patterns/cookies-and-sessions.md) |
 | Exchange identity assertions, often for enterprise SSO | SAML 2.0 | [SAML](saml.md) |
 | Create and manage users and groups across systems | SCIM 2.0 | [SCIM](scim.md) |
 | Authenticate with public-key credentials on the web | WebAuthn / FIDO | [Modern authentication](modern-authentication.md) |
-| Represent and validate a set of claims | JWT, JWS, JWK | [JWT and token validation](jwt-and-token-validation.md) |
-| Sign in devices, exchange tokens, or bind tokens to a client | OAuth extensions | [Advanced OAuth](oauth-extensions.md) |
+| Represent and validate a set of claims | JWT, JWS, JWK | [JWT and token validation](../oauth-oidc/jwt-and-token-validation.md), [token claims](../oauth-oidc/token-claims.md) |
+| Sign in devices, exchange tokens, or bind tokens to a client | OAuth extensions | [Advanced OAuth](../oauth-oidc/oauth-extensions.md) |
 | Access a directory or authenticate inside a Windows domain | LDAP, Kerberos | [LDAP and Kerberos](ldap-and-kerberos.md) |
 | Notify other systems of revocations and compromise | Shared Signals, CAEP, RISC | [Shared Signals](shared-signals.md) |
 | Ask a policy engine for an authorization decision | AuthZEN, XACML | [Policy engines](../patterns/policy-engines.md) |
@@ -26,7 +32,7 @@ IAM standards solve different problems. Before selecting one, describe the inter
 
 ## A format is not a complete protocol
 
-A JWT is a token format. It does not tell you, by itself, which issuer is trusted, which keys are accepted, which recipient it is intended for, or whether it is the right kind of token for a request. [JWT and token validation](jwt-and-token-validation.md) lists the checks a recipient applies.
+A JWT is a token format. It does not tell you, by itself, which issuer is trusted, which keys are accepted, which recipient it is intended for, or whether it is the right kind of token for a request. [JWT and token validation](../oauth-oidc/jwt-and-token-validation.md) lists the checks a recipient applies.
 
 Likewise, “uses JSON” says little about the trust model. A secure integration needs the surrounding protocol, validation rules, and operational controls.
 

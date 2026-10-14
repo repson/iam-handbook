@@ -2,7 +2,7 @@
 title: Just-in-time access and zero standing privilege
 description: Grant elevated access only when needed, for a limited time, and remove it automatically.
 category: patterns
-order: 5
+order: 10
 level: Intermediate
 updated: 2026-10-14
 tags: [JIT, just-in-time, zero standing privilege, ZSP, PAM, time-bound access, elevation]

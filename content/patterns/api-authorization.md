@@ -41,7 +41,7 @@ Use the gateway for coarse checks and the service for object-level decisions. De
 When service A calls service B on behalf of a user, B needs to know both who the user is and which service is calling. Options include:
 
 - **Forwarding the user's token.** Simple, but the token's audience may not include service B, and B gains a token it could replay elsewhere.
-- **Token exchange.** Service A exchanges the incoming token for a new one with service B as the audience and a reduced scope, following OAuth Token Exchange (RFC 8693). See [advanced OAuth](../standards/oauth-extensions.md).
+- **Token exchange.** Service A exchanges the incoming token for a new one with service B as the audience and a reduced scope, following OAuth Token Exchange (RFC 8693). See [advanced OAuth](../oauth-oidc/oauth-extensions.md).
 - **Signed internal context.** An internal token minted by a trusted component, carrying the user and calling service.
 
 Never accept identity from an unsigned header such as `X-User-Id` unless a trusted component sets it and clients cannot reach the service directly.
@@ -62,7 +62,7 @@ For each endpoint, maintain a matrix of roles or relationships against expected 
 
 ## Keep learning
 
-See [policy engines](policy-engines.md) to externalize decisions and [JWT and token validation](../standards/jwt-and-token-validation.md) for the token checks in step 1.
+See [policy engines](policy-engines.md) to externalize decisions and [JWT and token validation](../oauth-oidc/jwt-and-token-validation.md) for the token checks in step 1.
 
 ## References
 

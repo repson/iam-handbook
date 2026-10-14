@@ -49,7 +49,7 @@ Read [identity governance](../content/capabilities/identity-governance.md), [rol
 
 ## 08 — Secure the runtime
 
-Study [JWT and token validation](../content/standards/jwt-and-token-validation.md) and [authorization in APIs](../content/patterns/api-authorization.md). Continue with [policy engines](../content/patterns/policy-engines.md) when rules outgrow application code.
+Study [JWT and token validation](../content/oauth-oidc/jwt-and-token-validation.md) and [authorization in APIs](../content/patterns/api-authorization.md). Continue with [policy engines](../content/patterns/policy-engines.md) when rules outgrow application code.
 
 **You should be able to explain:** why a valid token for the right user can still be the wrong token for a request.
 
@@ -65,8 +65,12 @@ Choose the branch that matches your work:
 
 - **Customer identity:** [customer IAM](../content/architecture/customer-iam.md) and [identity assurance levels](../content/fundamentals/identity-assurance.md).
 - **Workloads and automation:** [non-human identities](../content/identity-modeling/non-human-identities.md) and [deploying from CI/CD without stored secrets](../content/use-cases/ci-cd-workload-federation.md).
-- **Protocols:** [advanced OAuth](../content/standards/oauth-extensions.md), [Shared Signals](../content/standards/shared-signals.md), and [LDAP and Kerberos](../content/standards/ldap-and-kerberos.md).
-- **Running the program:** [measuring an IAM program](../content/capabilities/iam-metrics.md) and [partner access](../content/use-cases/b2b-partner-access.md).
+- **OAuth and OpenID Connect:** [grant types and clients](../content/oauth-oidc/grants-and-clients.md), [authorization server endpoints](../content/oauth-oidc/authorization-server-endpoints.md), [token claims](../content/oauth-oidc/token-claims.md), [DPoP](../content/oauth-oidc/dpop.md), and [threats and mitigations](../content/oauth-oidc/oauth-security.md). Then apply them in [authorizing a payment with PAR, RAR, and DPoP](../content/use-cases/payment-authorization.md).
+- **Web and mobile applications:** [backend for frontend](../content/patterns/backend-for-frontend.md), [native and mobile apps](../content/patterns/native-apps.md), and [cookies and sessions](../content/patterns/cookies-and-sessions.md).
+- **Authorization design:** [access control models compared](../content/patterns/access-control-models.md) and [API gateway policies](../content/patterns/api-gateway-policies.md).
+- **Other protocols:** [Shared Signals](../content/standards/shared-signals.md) and [LDAP and Kerberos](../content/standards/ldap-and-kerberos.md).
+- **AI agents:** [connecting an AI agent to a protected API](../content/use-cases/ai-agent-mcp.md).
+- **Running the program:** [measuring an IAM program](../content/capabilities/iam-metrics.md), [partner access](../content/use-cases/b2b-partner-access.md), and [the product landscape](../content/capabilities/product-landscape.md).
 
 ## Keep a working glossary
 

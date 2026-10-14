@@ -65,6 +65,6 @@ This applies the ideas in [workload and non-human identities](../identity-modeli
 
 ## References
 
-- [GitHub Docs: About security hardening with OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+- [GitHub Docs: OpenID Connect](https://docs.github.com/en/actions/concepts/security/openid-connect).
 - [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) for ID token structure and validation.
 - [SPIFFE](https://spiffe.io/) for a platform-neutral approach to workload identity.

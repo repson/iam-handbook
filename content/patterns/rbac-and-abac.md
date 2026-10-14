@@ -42,6 +42,10 @@ Allow an expense approval when the subject has an approver role, the amount is w
 
 This combines role, attribute, relationship, and transaction constraints. Test positive and negative cases against actual business requirements.
 
+## Keep learning
+
+[Access control models compared](access-control-models.md) places these approaches alongside DAC, MAC, ACLs, capabilities, PBAC, and NGAC, with trade-offs and implementations. [Policy engines](policy-engines.md) shows how to externalize the decisions.
+
 ## References
 
 - [NIST RBAC project](https://csrc.nist.gov/projects/role-based-access-control) describes role-based models.

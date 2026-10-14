@@ -43,7 +43,7 @@ The flow can go both ways: an application detecting suspicious behavior can send
 ## Design considerations
 
 - **Mapping subjects.** The receiver must map the event's subject identifier to its own account or session. Agree on identifier formats in advance.
-- **Trust.** Validate the SET signature, issuer, and audience as for any JWT; see [JWT and token validation](jwt-and-token-validation.md).
+- **Trust.** Validate the SET signature, issuer, and audience as for any JWT; see [JWT and token validation](../oauth-oidc/jwt-and-token-validation.md).
 - **Idempotence and ordering.** Events can be delayed or delivered more than once. Design receivers to handle duplicates safely.
 - **Actionability.** An event the receiver cannot act on adds no protection. Start with the events that close your biggest revocation gaps.
 

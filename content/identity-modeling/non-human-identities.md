@@ -42,7 +42,7 @@ Where a static secret is unavoidable, keep it in a secrets manager, scope it nar
 
 ## Agents acting for people
 
-An automated agent that acts on a person's behalf raises a delegation question: whose authority is being used? Prefer tokens that identify both the user and the acting client, limit scope and duration, and require fresh user confirmation for high-impact actions. OAuth Token Exchange defines an `act` (actor) claim for representing this delegation chain. See [advanced OAuth](../standards/oauth-extensions.md).
+An automated agent that acts on a person's behalf raises a delegation question: whose authority is being used? Prefer tokens that identify both the user and the acting client, limit scope and duration, and require fresh user confirmation for high-impact actions. OAuth Token Exchange defines an `act` (actor) claim for representing this delegation chain. See [advanced OAuth](../oauth-oidc/oauth-extensions.md).
 
 Avoid giving an agent a person's full session or a broadly privileged service account “to make it work”.
 

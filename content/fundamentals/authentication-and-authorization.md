@@ -44,7 +44,7 @@ The server must check authorization on protected operations. Hiding a button is 
 
 An authenticated user can still lack permission. An anonymous user may have permission to read public content. A role inside a token can provide an input to a decision, but it does not replace resource-level checks or remain current indefinitely.
 
-OAuth and OpenID Connect also have different purposes. [OpenID Connect](../standards/openid-connect.md) adds an authentication layer to the [OAuth authorization framework](../standards/oauth.md).
+OAuth and OpenID Connect also have different purposes. [OpenID Connect](../oauth-oidc/openid-connect.md) adds an authentication layer to the [OAuth authorization framework](../oauth-oidc/oauth.md).
 
 ## Reference
 

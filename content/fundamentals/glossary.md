@@ -84,6 +84,48 @@ This glossary uses practical working definitions. A specification may define a t
 | SPIFFE | A standard for workload identifiers and short-lived workload identity documents. |
 | Zero Trust | An approach that evaluates each access request rather than trusting network location. |
 
+## OAuth and OpenID Connect
+
+| Term | Working definition |
+| --- | --- |
+| Authorization server (AS) | Issues tokens to clients after authenticating users and applying policy. |
+| Resource server (RS) | The API that accepts and validates access tokens. |
+| Public / confidential client | A client that cannot / can keep a credential secret. |
+| `private_key_jwt` | Client authentication with a JWT signed by the client's private key. |
+| Introspection | Asking the authorization server whether a token is active and what it represents (RFC 7662). |
+| UserInfo | The OIDC endpoint that returns claims about the signed-in user. |
+| Opaque token | A reference token whose meaning is known only to the issuer. |
+| Self-contained token | A token carrying its claims by value, usually a signed JWT. |
+| Phantom token | Pattern where clients hold opaque tokens and a gateway swaps them for JWTs internally. |
+| `state` / `nonce` | Values that bind a response to the request that started it (CSRF and replay protection). |
+| `acr` / `amr` | Claims describing the authentication context and methods used. |
+| `cnf` | Confirmation claim binding a token to a key or certificate. |
+| Sender-constrained token | A token usable only by the client holding a specific key or certificate (DPoP, mTLS). |
+| PAR | Pushed Authorization Requests: sending authorization parameters over a back channel (RFC 9126). |
+| JAR | JWT-Secured Authorization Request: authorization parameters in a signed request object (RFC 9101). |
+| RAR | Rich Authorization Requests: structured permissions in `authorization_details` (RFC 9396). |
+| Resource indicator | The `resource` parameter that requests a token for a specific API (RFC 8707). |
+| Protected Resource Metadata | A document describing an API's authorization servers and requirements (RFC 9728). |
+| Dynamic client registration | Clients registering themselves at the authorization server (RFC 7591). |
+| CIBA | Client-Initiated Backchannel Authentication: authenticating the user on a separate device. |
+| Back-channel logout | The OP notifies RPs of logout by sending them a signed logout token directly. |
+| FAPI | OpenID Foundation security profiles for high-risk APIs such as open banking. |
+
+## Application security
+
+| Term | Working definition |
+| --- | --- |
+| BFF | Backend for frontend: a server-side component that holds tokens on behalf of a browser app. |
+| Session cookie | A cookie identifying the user's session with an application. |
+| `HttpOnly` / `Secure` / `SameSite` | Cookie attributes that block script access, require HTTPS, and limit cross-site sending. |
+| Session fixation | Forcing a known session identifier on a victim; prevented by regenerating the ID at login. |
+| CSRF | Cross-site request forgery: another site triggering requests that carry the user's cookies. |
+| DAC / MAC | Discretionary (owner-controlled) / mandatory (label-based, centrally enforced) access control. |
+| ACL | Access control list: permissions stored with each resource. |
+| PBAC | Policy-based access control: externalized, centrally managed authorization policies. |
+| NGAC | NIST's Next Generation Access Control, a graph-based model. |
+| API gateway | An edge component enforcing authentication, rate limits, and coarse policies for APIs. |
+
 ## How to use this glossary
 
 Read [What is IAM?](what-is-iam.md) for the overall map and [identity assurance levels](identity-assurance.md) for the assurance vocabulary. For a specific protocol, use the articles under [standards and protocols](../standards/standards-map.md), which link to normative definitions.

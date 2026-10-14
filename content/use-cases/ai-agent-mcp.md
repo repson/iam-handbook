@@ -1,0 +1,65 @@
+---
+title: Connecting an AI agent to a protected API (MCP)
+description: How an AI agent discovers, authorizes, and calls a protected tool server with OAuth, Protected Resource Metadata, and audience-bound tokens.
+category: use-cases
+order: 7
+level: Advanced
+updated: 2026-10-14
+tags: [AI agents, MCP, Model Context Protocol, OAuth, RFC 9728, resource indicators, delegation, token exchange]
+---
+Maya uses an AI assistant that can call tools. Her company exposes its ticketing system as a Model Context Protocol (MCP) server so the assistant can search and update tickets on her behalf. The agent must act with Maya's authority, limited to what she approved, and the ticketing system must know it is talking to an agent.
+
+The MCP authorization specification builds on OAuth 2.1 and the discovery standards described in this handbook.
+
+## Roles
+
+| MCP role | OAuth role |
+| --- | --- |
+| MCP server (ticketing tools) | Resource server |
+| MCP client (inside the AI application) | OAuth client, usually public |
+| Company identity provider | Authorization server |
+| Maya | Resource owner |
+
+## Discovery and authorization
+
+```text
+1. Agent → MCP server: request without a token
+2. MCP server → 401  WWW-Authenticate: Bearer resource_metadata="https://tickets.example.test/.well-known/oauth-protected-resource"
+3. Agent fetches Protected Resource Metadata → authorization_servers: ["https://login.example.test"]
+4. Agent fetches authorization server metadata (RFC 8414 / OIDC Discovery)
+5. Agent registers if needed (pre-registration or dynamic client registration)
+6. Authorization code + PKCE, with resource=https://tickets.example.test
+7. Maya signs in and consents: "AI Assistant wants to read and update your tickets"
+8. Agent calls the MCP server with an access token whose audience is the ticketing server
+```
+
+See [discovery and metadata](../oauth-oidc/discovery-and-metadata.md) for steps 2 to 5.
+
+## Security rules that matter
+
+**Audience-bound tokens.** The `resource` parameter (RFC 8707) makes the token valid only for the ticketing MCP server. The server must reject tokens issued for any other audience.
+
+**No token passthrough.** If the ticketing MCP server needs to call another API, it must not forward Maya's token. It obtains its own token for that API, for example through [token exchange](../oauth-oidc/oauth-extensions.md), which can record the delegation chain in an `act` claim. Forwarding tokens creates a confused-deputy problem and bypasses the downstream API's controls.
+
+**Least privilege for the agent.** Request narrow scopes such as `tickets.read` and `tickets.comment`. Destructive actions such as closing many tickets deserve separate scopes, explicit confirmation from Maya, or [step-up](../oauth-oidc/resource-servers.md).
+
+**Consent that names the agent.** The consent screen should show which application is acting, so Maya can distinguish the assistant from other clients and revoke it later.
+
+**Audit both identities.** The ticketing system should log the user (`sub`) and the client (`client_id` or `act`), so that “Maya did it” and “the agent did it on Maya's behalf” are distinguishable.
+
+## Risks specific to agents
+
+| Risk | Mitigation |
+| --- | --- |
+| Prompt injection makes the agent take unintended actions | Narrow scopes, confirmation for sensitive actions, server-side authorization on every call. |
+| Over-broad standing tokens | Short-lived access tokens, refresh tokens bound to the client, easy revocation. |
+| Malicious tool servers | Allow lists of trusted MCP servers; validate metadata and issuers. |
+| Unclear accountability | Delegation claims and audit logs that record the actor. |
+
+## References
+
+- [Model Context Protocol: Authorization](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) — check for later revisions of the specification.
+- [OAuth 2.0 Protected Resource Metadata, RFC 9728](https://www.rfc-editor.org/rfc/rfc9728.html).
+- [Resource Indicators, RFC 8707](https://www.rfc-editor.org/rfc/rfc8707.html).
+- [OAuth 2.0 Token Exchange, RFC 8693](https://www.rfc-editor.org/rfc/rfc8693.html).
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/).

@@ -1,8 +1,8 @@
 ---
 title: JWT and token validation
 description: Read a JSON Web Token's structure and apply the checks that decide whether a token can be trusted.
-category: standards
-order: 7
+category: oauth-oidc
+order: 8
 level: Intermediate
 updated: 2026-10-14
 tags: [JWT, JWS, JWK, JWKS, token validation, access token, ID token, RFC 8725]
@@ -75,7 +75,7 @@ Issuers rotate signing keys. Recipients should cache the key set, refresh it whe
 
 ## Opaque or structured?
 
-An access token can be a JWT validated locally or an opaque reference checked through introspection (RFC 7662). Local validation is fast but makes revocation harder; introspection gives current state at the cost of a network call. See [sessions, tokens, and revocation](../processes/sessions-and-revocation.md).
+An access token can be a JWT validated locally or an opaque reference checked through introspection (RFC 7662). Local validation is fast but makes revocation harder; introspection gives current state at the cost of a network call. See [self-contained and opaque tokens](self-contained-and-opaque-tokens.md) for a full comparison and [token claims](token-claims.md) for the claims you will validate.
 
 ## References
 

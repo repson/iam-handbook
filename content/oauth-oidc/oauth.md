@@ -1,8 +1,8 @@
 ---
 title: OAuth 2.0 in plain language
 description: Understand delegated API access, the main actors, and the role of access tokens.
-category: standards
-order: 2
+category: oauth-oidc
+order: 1
 updated: 2026-10-14
 tags: [OAuth, authorization, access token, PKCE, scopes, API]
 ---
@@ -41,10 +41,27 @@ Access tokens can be opaque or structured. Their format is a deployment choice; 
 
 Use maintained protocol libraries and the applicable security profile. The OAuth Security BCP advises against the implicit grant and prohibits use of the resource owner password credentials grant. Exact redirect URI handling, PKCE, token protection, and client type all matter.
 
-For application sign-in, continue with [OpenID Connect](openid-connect.md). For software acting without a user, see [workload access](../use-cases/workload-access.md). For device sign-in, token exchange, and sender-constrained tokens, see [advanced OAuth](oauth-extensions.md).
+For application sign-in, continue with [OpenID Connect](openid-connect.md). For software acting without a user, see [workload access](../use-cases/workload-access.md).
+
+## Go deeper
+
+| Topic | Article |
+| --- | --- |
+| Which grant and which client authentication to use | [Grant types and clients](grants-and-clients.md) |
+| What each authorization server endpoint does | [Authorization server endpoints](authorization-server-endpoints.md) |
+| How clients and APIs discover each other | [Discovery and metadata](discovery-and-metadata.md) |
+| What is inside a token | [Token claims](token-claims.md) and [self-contained vs. opaque tokens](self-contained-and-opaque-tokens.md) |
+| How an API should accept tokens | [Protecting an API as a resource server](resource-servers.md) |
+| Binding tokens to the client | [DPoP](dpop.md) |
+| Protecting and enriching the authorization request | [PAR and JAR](par-and-jar.md), [RAR](rich-authorization-requests.md) |
+| Device flow, token exchange, mTLS, OAuth 2.1 | [Advanced OAuth](oauth-extensions.md) |
+| What can go wrong | [Threats and mitigations](oauth-security.md) |
+| Browser and mobile architectures | [Backend for frontend](../patterns/backend-for-frontend.md), [native and mobile apps](../patterns/native-apps.md) |
 
 ## References
 
 - [OAuth 2.0, RFC 6749](https://www.rfc-editor.org/rfc/rfc6749.html).
 - [PKCE, RFC 7636](https://www.rfc-editor.org/rfc/rfc7636.html).
 - [OAuth Security BCP, RFC 9700](https://www.rfc-editor.org/rfc/rfc9700.html).
+- [Bearer Token Usage, RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.html).
+- [OAuth.net](https://oauth.net/2/), a community index of OAuth specifications maintained by specification authors.

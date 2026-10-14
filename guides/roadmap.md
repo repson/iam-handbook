@@ -22,15 +22,21 @@ The second edition adds operational and advanced material:
 - **Standards in practice:** JWT validation, advanced OAuth, LDAP and Kerberos, and Shared Signals.
 - **Running the program:** metrics that measure outcomes rather than deployment.
 
+## Available now — OAuth, OpenID Connect, and application security
+
+A dedicated section covers OAuth and OpenID Connect in depth: grant types and client authentication, authorization server endpoints, discovery and Protected Resource Metadata, token claims, self-contained and opaque tokens, resource servers and step-up, DPoP, PAR, JAR, RAR, logout, and the threats in the security BCP.
+
+The design patterns add access control models compared, API gateway policies, the backend-for-frontend pattern, native and mobile apps, and cookies and sessions. New use cases cover a payment authorized with PAR, RAR, and DPoP, and an AI agent connecting to a protected API through MCP. A product landscape links to official vendor and project documentation.
+
 ## Next — Deeper walkthroughs
 
-Planned topics include protocol traces for OIDC and SAML, signing-key rotation exercises, SCIM interoperability testing, and federation logout.
+Planned topics include annotated protocol traces for OIDC and SAML, signing-key rotation exercises, SCIM interoperability testing, and SAML single logout.
 
 Examples should identify the specification or profile they implement and the limits of the demonstration.
 
 ## Later — More architectures and patterns
 
-Areas to explore include multi-tenant SaaS identity, identity for AI agents, decentralized identity and verifiable credentials, mobile and native application sign-in, and migrating from on-premises directories.
+Areas to explore include multi-tenant SaaS identity, decentralized identity and verifiable credentials (OpenID for Verifiable Credentials, SD-JWT), passkey deployment at scale, and migrating from on-premises directories.
 
 The aim is to compare the conditions under which a pattern helps and the tradeoffs it introduces. Product-specific implementation notes can supplement the underlying concepts.
 

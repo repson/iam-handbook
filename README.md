@@ -8,7 +8,8 @@ Expected GitHub Pages URL: **https://repson.github.io/iam-handbook/**. This is t
 
 ## What is included
 
-- 44 articles across eight connected areas, from foundational concepts to advanced practice: governance, privileged access, threat detection, API authorization, token validation, and more.
+- 63 articles across nine connected areas, from foundational concepts to advanced practice: governance, privileged access, threat detection, access control models, API security, and a dedicated OAuth & OpenID Connect section (grants, endpoints, metadata, claims, DPoP, PAR, RAR, logout).
+- References to official specifications and documentation (IETF RFCs, OpenID Foundation, NIST, OWASP, vendor docs) in every article.
 - A guided learning path, glossary, roadmap, and contribution guide.
 - Automatically generated topic pages, article navigation, and table of contents.
 - Local full-text search with keyboard navigation (`Ctrl/Cmd + K`).
@@ -28,6 +29,7 @@ content/                    # Published knowledge-base articles (Markdown)
   patterns/
   use-cases/
   standards/
+  oauth-oidc/
 guides/                     # Learning path, roadmap, and contribution guide
 templates/article.md        # Copy this to start an article
 src/
@@ -81,7 +83,7 @@ draft: false
 ---
 ```
 
-`category` must be one of the eight folder names shown above. `level` can be `Foundational`, `Intermediate`, or `Advanced`. Use `order` to arrange articles within a topic. The date represents the last substantive review, not an automated build date.
+`category` must be one of the nine folder names shown above. `level` can be `Foundational`, `Intermediate`, or `Advanced`. Use `order` to arrange articles within a topic. The date represents the last substantive review, not an automated build date.
 
 Titles, metadata, category names, ordering, and dates are validated during the build. Sidebar links, topic pages, search, reading times, and previous/next navigation are generated automatically. To introduce another topic, update the definitions in `src/lib/categories.ts`.
 

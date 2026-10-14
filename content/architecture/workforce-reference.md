@@ -39,7 +39,7 @@ Contractor sponsorship and expiry should be modeled even if HR does not hold con
 
 An application redirects the user to the identity provider. The provider authenticates the user according to policy and returns a protocol-specific response. The application validates that response, establishes its own session, and enforces business authorization on each protected operation.
 
-Federation may use [OIDC](../standards/openid-connect.md) or [SAML](../standards/saml.md). Provisioning may use [SCIM](../standards/scim.md), a vendor API, or a controlled manual process.
+Federation may use [OIDC](../oauth-oidc/openid-connect.md) or [SAML](../standards/saml.md). Provisioning may use [SCIM](../standards/scim.md), a vendor API, or a controlled manual process.
 
 ## Design for failure
 
