@@ -4,8 +4,6 @@ An open, evolving knowledge base for **identity and access management**. Start w
 
 The website is generated from independent Markdown documents using Astro. It is a static site designed for GitHub Pages: no database, API keys, or server runtime is required.
 
-Website: **https://iamnotroot.com/**, published with GitHub Pages from `repson/iamnotroot`. This is the configured destination, not a deployment-status indicator.
-
 ## What is included
 
 - 63 articles across nine connected areas, from foundational concepts to advanced practice: governance, privileged access, threat detection, access control models, API security, and a dedicated OAuth & OpenID Connect section (grants, endpoints, metadata, claims, DPoP, PAR, RAR, logout).
