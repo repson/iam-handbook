@@ -11,6 +11,19 @@ themeButton?.addEventListener('click', () => {
   updateThemeLabel();
 });
 
+const collapseButton = document.querySelector<HTMLButtonElement>('#sidebar-toggle');
+function setCollapsed(collapsed: boolean) {
+  document.body.classList.toggle('sidebar-collapsed', collapsed);
+  collapseButton?.setAttribute('aria-expanded', String(!collapsed));
+  collapseButton?.setAttribute('aria-label', collapsed ? 'Show navigation' : 'Hide navigation');
+}
+try { setCollapsed(localStorage.getItem('iam-sidebar') === 'collapsed'); } catch {}
+collapseButton?.addEventListener('click', () => {
+  const collapsed = !document.body.classList.contains('sidebar-collapsed');
+  setCollapsed(collapsed);
+  try { localStorage.setItem('iam-sidebar', collapsed ? 'collapsed' : 'open'); } catch {}
+});
+
 const sidebar = document.querySelector<HTMLElement>('#sidebar')!;
 const menu = document.querySelector<HTMLButtonElement>('#menu-toggle')!;
 const backdrop = document.querySelector<HTMLButtonElement>('#nav-backdrop')!;

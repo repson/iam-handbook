@@ -1,6 +1,5 @@
 ---
 import '@fontsource-variable/dm-sans';
-import '@fontsource-variable/newsreader';
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import { articles, url, articleUrl, categoryUrl, repository } from '../lib/content';
@@ -18,7 +17,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f8f9f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
     <title>{title ? `${title} — iamnotroot` : 'iamnotroot — Identity, understood.'}</title>
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
@@ -37,7 +36,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <header class="site-header">
       <a href={url()} class="brand" aria-label="iamnotroot home"><span class="brand-mark">i<span>:</span></span><span>iam<strong>notroot</strong><small>IDENTITY & ACCESS MANAGEMENT</small></span></a>
       <div class="header-main">
-        <div class="header-context"><span class="context-square"></span>{section}</div>
+        <div class="header-context"><button class="icon-button sidebar-toggle" id="sidebar-toggle" aria-label="Hide navigation" aria-controls="sidebar" aria-expanded="true"><span class="context-square"></span></button>{section}</div>
         <nav class="header-links" aria-label="Utility navigation"><a href={url('roadmap/')}>Roadmap</a><a href={url('contribute/')}>Contribute <Icon name="northeast" size={13} /></a></nav>
         <span class="header-divider"></span>
         <a class="icon-button" href={repository} aria-label="View source on GitHub"><Icon name="github" /></a>
