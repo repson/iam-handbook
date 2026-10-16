@@ -95,7 +95,7 @@
   .hero-meta { display: flex; align-items: center; gap: 12px; margin-top: 23px; font-size: 10px; color: var(--faint); }
   .hero-meta > span { display: flex; gap: 6px; align-items: center; }
   .meta-dot { opacity: .6; }
-  .identity-map { padding: 20px 24px 0; background-color: var(--diagram); background-image: radial-gradient(var(--line) .8px, transparent .8px); background-size: 12px 12px; border: 1px solid var(--line); border-radius: 9px; transform: rotate(-1deg); max-width: 420px; width: 100%; justify-self: end; }
+  .identity-map { padding: 20px 24px 0; background-color: var(--diagram); background-image: radial-gradient(var(--line) .8px, transparent .8px); background-size: 12px 12px; border: 1px solid var(--line); border-radius: 9px; max-width: 420px; width: 100%; justify-self: end; }
   .map-caption { display: flex; justify-content: space-between; font-size: 8px; letter-spacing: 1.25px; color: var(--muted); margin-bottom: 23px; }
   .map-person { width: 85%; margin: auto; padding: 13px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); display: flex; align-items: center; gap: 11px; box-shadow: 0 4px 8px #20372d03; }
   .map-person strong, .map-resource strong { display: block; font-size: 12px; font-weight: 550; }
